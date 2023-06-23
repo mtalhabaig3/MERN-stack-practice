@@ -23,7 +23,7 @@ export default class RestaurantsDAO {
   } = {}) {
     let query;
     if (filters) {
-      if ("names" in filters) {
+      if ("name" in filters) {
         query = { $text: { $search: filters["name"] } };
       } else if ("cuisine" in filters) {
         query = { cuisine: { $eq: filters["cuisine"] } };
