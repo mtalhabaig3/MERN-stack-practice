@@ -6,13 +6,11 @@ let reviews;
 export default class ReviewsDAO {
   static async injectDB(conn) {
     if (reviews) {
-      console.log("returning from inject db");
       return;
     }
 
     try {
       reviews = await conn.db(process.env.RESTREVIEWS_NS).collection("reviews");
-      console.log("creating reviews collection");
     } catch (error) {
       console.error(
         `Unable to establish collection handles in userDAO: ${error}`
@@ -21,6 +19,7 @@ export default class ReviewsDAO {
   }
 
   static async addReview(restaurantId, user, review, date) {
+    console.log(`restaurantID: ${restaurantId}`);
     try {
       const reviewDoc = {
         name: user.name,
@@ -29,6 +28,8 @@ export default class ReviewsDAO {
         text: review,
         restaurant_id: new ObjectId(restaurantId),
       };
+
+      console.log(`restaurant_id: ${new ObjectId(restaurantId)}`);
 
       return await reviews.insertOne(reviewDoc);
     } catch (error) {
