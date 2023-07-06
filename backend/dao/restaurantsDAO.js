@@ -61,7 +61,6 @@ export default class RestaurantsDAO {
   }
 
   static async getRestaurantByID(id) {
-    console.log(`id: ${new ObjectId(id)}`);
     try {
       const pipeline = [
         {
