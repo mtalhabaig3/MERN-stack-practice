@@ -1,7 +1,7 @@
 import React from "react";
 
 function AddReview() {
-  return <div className="App">AddReview</div>;
+  return <div>AddReview</div>;
 }
 
 export default AddReview;
