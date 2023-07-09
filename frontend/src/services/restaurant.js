@@ -5,8 +5,8 @@ class RestaurantDataService {
     return http.get(`?page=${page}`);
   }
 
-  getid(id) {
-    return http.get(`/id=${id}`);
+  get(id) {
+    return http.get(`/id/${id}`);
   }
 
   find(query, by = "name", page = 0) {
@@ -21,8 +21,8 @@ class RestaurantDataService {
     return http.put("/review", data);
   }
 
-  deleteReview(id) {
-    return http.delete(`/review?id=${id}`);
+  deleteReview(id, userId) {
+    return http.delete(`/review?id=${id}`, { data: { user_id: userId } });
   }
 
   getCuisines() {

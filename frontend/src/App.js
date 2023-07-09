@@ -20,11 +20,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root user={user} logOut={logOut} />}>
-        <Route
-          index
-          path={("/", "/restaurants")}
-          element={<RestaurantsList />}
-        />
+        <Route index path="/restaurants" element={<RestaurantsList />} />
         <Route
           path="/restaurants/:id/review"
           element={<AddReview user={user} />}

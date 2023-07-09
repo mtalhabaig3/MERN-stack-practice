@@ -28,7 +28,6 @@ const RestaurantsList = (props) => {
   const retrieveCuisines = () => {
     RestaurantDataService.getCuisines()
       .then((response) => {
-        console.log("restaurants: ", response.data);
         setCuisines(cuisines.concat(response.data));
       })
       .catch((e) => {
@@ -55,7 +54,6 @@ const RestaurantsList = (props) => {
   const find = (query, by) => {
     RestaurantDataService.find(query, by)
       .then((response) => {
-        console.log("filtered restaurants: ", response.data);
         setRestaurants(response.data.restaurants);
       })
       .catch((e) => {
@@ -152,7 +150,7 @@ const RestaurantsList = (props) => {
                   </p>
                   <div className="row">
                     <Link
-                      to={"/restaurants" + restaurant.id}
+                      to={"/restaurants/" + restaurant._id}
                       className="btn col-lg-5 btn-primary mx-1 mb-1"
                     >
                       View Reviews
